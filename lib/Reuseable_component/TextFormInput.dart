@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Utils/color.dart';
+import '../Utils/extensions.dart';
 
 class TextFormInput extends StatefulWidget {
   final TextEditingController controller;
@@ -64,7 +65,7 @@ class TextFormInputState extends State<TextFormInput> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.fieldName, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+        Text(widget.fieldName, style: const TextStyle(fontWeight: FontWeightExtensions.bold, fontSize: 18)),
         const SizedBox(height: 5),
         Container(
           padding: const EdgeInsets.only(left: 20),

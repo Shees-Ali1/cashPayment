@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:newtest/Utils/extensions.dart';
 import '../../Reuseable_component/TextFormInput.dart';
 import '../../Reuseable_component/button.dart';
 import '../../Utils/color.dart';
 import '../../Utils/constant.dart';
-import '../../utils/extensions.dart'; // Add your color and font size extensions here
+import '../Model/Model.dart'; // Add your color and font size extensions here
 
 class CashPayment extends StatefulWidget {
   const CashPayment({Key? key, required this.title}) : super(key: key);
@@ -14,7 +15,7 @@ class CashPayment extends StatefulWidget {
 }
 
 class _CashPaymentState extends State<CashPayment> {
-  final TextEditingController emailController = TextEditingController();
+
   final GlobalKey<TextFormInputState> emailInputKey =
       GlobalKey<TextFormInputState>();
 
@@ -48,7 +49,7 @@ class _CashPaymentState extends State<CashPayment> {
           widget.title,
           style: const TextStyle(
             color: Colors.white,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeightExtensions.bold,
             fontSize: AppFontSize.appBarTitle,
           ),
         ),
@@ -78,7 +79,7 @@ class _CashPaymentState extends State<CashPayment> {
                       "\$12.00",
                       style: TextStyle(
                         fontSize: AppFontSize.price,
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeightExtensions.w900,
                         color: AppColors.textColor,
                       ),
                     ),
@@ -101,7 +102,7 @@ class _CashPaymentState extends State<CashPayment> {
                       "\$0.00",
                       style: TextStyle(
                         fontSize: AppFontSize.price,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeightExtensions.bold,
                         color: AppColors.textColor,
                       ),
                     ),
@@ -126,16 +127,9 @@ class _CashPaymentState extends State<CashPayment> {
                   TextFormInput(
                     key: emailInputKey,
                     fieldName: 'Email',
-                    controller: emailController,
+                    controller: CashPaymentModel().emailController,
                     hint: 'Enter here',
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'Please enter an email address';
-                      } else if (!RegExp( r"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$") .hasMatch(value)) {
-                        return 'Invalid email address format';
-                      }
-                      return null; // Return null if the input is valid
-                    },
+                    validator: CashPaymentModel().validateEmail,
                   ),
                 ],
               ),
