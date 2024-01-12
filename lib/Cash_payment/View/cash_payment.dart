@@ -56,7 +56,7 @@ class _CashPaymentState extends State<CashPayment> {
       body: Column(
         children: [
           Container(
-            margin: EdgeInsets.only(top: AppSpacing.margin),
+            margin: EdgeInsets.only(top: AppSpacing.marginTop),
             width: context.screenWidth(0.9),
             padding: EdgeInsets.symmetric(vertical: AppSpacing.paddingVertical),
             decoration: BoxDecoration(

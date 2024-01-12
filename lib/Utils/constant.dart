@@ -1,5 +1,6 @@
 class AppSpacing {
-  static const double margin = 10.0;
+  static const double margin = 50.0;
+  static const double marginTop = 20.0;
   static const double padding = 16.0;
   static const double paddingVertical = 16.0;
 }
